@@ -1,0 +1,14 @@
+{
+  "name": "project-euler",
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {
+    "build": "tsc"
+  },
+  "author": "zbream",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node": "^7.0.0",
+    "typescript": "^3.0.1"
+  }
+}
