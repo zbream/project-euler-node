@@ -3,12 +3,17 @@
   "version": "0.0.0",
   "description": "",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc && cpx \"./src/**/*.!(ts)\" \"./dist\""
   },
   "author": "zbream",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^10.5.8",
+    "cpx": "^1.5.0",
     "ts-node": "^7.0.0",
     "typescript": "^3.0.1"
+  },
+  "dependencies": {
+    "rxjs": "^6.2.2"
   }
 }
