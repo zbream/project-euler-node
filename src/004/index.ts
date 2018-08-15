@@ -1,4 +1,4 @@
-import { isPalindrome } from "../common/palindrome";
+import { isPalindrome } from '../common/palindrome';
 
 const test = maxPalindromeProductOfTwoFactorsBelow(100);
 console.log(test);

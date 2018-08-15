@@ -3,7 +3,9 @@ import * as path from 'path';
 import { createDigitStream$ } from './digit-stream';
 import { ProductQueue } from './product-queue';
 
-const inputPath = path.join(__dirname, 'input.txt');
+const FILE = 'input.txt';
+
+const inputPath = path.join(__dirname, FILE);
 const digits$ = createDigitStream$(inputPath);
 
 const testProductQueue = new ProductQueue(4);

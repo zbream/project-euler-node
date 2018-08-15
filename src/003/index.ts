@@ -1,4 +1,4 @@
-import { isPrime } from "../common/prime";
+import { isPrime } from '../common/prime';
 
 const test = maxPrimeFactorOf(13195);
 console.log(test);

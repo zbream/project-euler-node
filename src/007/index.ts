@@ -1,4 +1,4 @@
-import { isPrime } from "../common/prime";
+import { isPrime } from '../common/prime';
 
 const test = nthPrime(6);
 console.log(test);

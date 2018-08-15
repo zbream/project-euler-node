@@ -9,7 +9,7 @@ export function createDigitStream$(path: string): Observable<number> {
   )
 }
 
-export function createFileCharStream$(path: string): Observable<string> {
+function createFileCharStream$(path: string): Observable<string> {
   return new Observable(subscriber => {
     const stream = fs.createReadStream(path, { encoding: 'utf8' });
     stream.on('readable', () => {
