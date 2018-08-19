@@ -2,14 +2,14 @@ import * as fs from 'fs';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 
-export function createDigitStream$(path: string): Observable<number> {
-  return createFileCharStream$(path).pipe(
+export function getInputDigitStream$(path: string): Observable<number> {
+  return getInputFileCharStream$(path).pipe(
     filter(char => char !== '\r' && char !== '\n'),
     map(char => +char),
   );
 }
 
-function createFileCharStream$(path: string): Observable<string> {
+function getInputFileCharStream$(path: string): Observable<string> {
   return new Observable(subscriber => {
     const stream = fs.createReadStream(path, { encoding: 'utf8' });
     stream.on('readable', () => {

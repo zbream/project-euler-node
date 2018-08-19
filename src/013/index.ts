@@ -1,18 +1,18 @@
 import * as path from 'path';
 
-import { getNumberList } from './number-list';
+import { getInputNumberList } from './input/input-number-list';
 
-const FILE = 'input.txt';
+const FILE = 'input/input.txt';
 const NUM_NUMBERS = 100;
 const NUM_DIGITS = 50;
 
 const inputPath = path.join(__dirname, FILE);
-const inputNumbers = getNumberList(inputPath, NUM_NUMBERS, NUM_DIGITS);
+const inputNumberList = getInputNumberList(inputPath, NUM_NUMBERS, NUM_DIGITS);
 
-const result = firstTenDigitsOfSum(inputNumbers, NUM_NUMBERS, NUM_DIGITS);
+const result = firstTenDigitsOfSum(inputNumberList, NUM_NUMBERS, NUM_DIGITS);
 console.log(result);
 
-function firstTenDigitsOfSum(numbers: number[][], numNumbers: number, numDigits: number): string {
+function firstTenDigitsOfSum(numberList: number[][], numNumbers: number, numDigits: number): string {
   // store result in order from least-significant to most-significant
   let sum = '';
   let carryover = 0;
@@ -21,7 +21,7 @@ function firstTenDigitsOfSum(numbers: number[][], numNumbers: number, numDigits:
   for (let digit = 0; digit < numDigits; digit++) {
     let columnSum = carryover;
     for (let num = 0; num < numNumbers; num++) {
-      columnSum += numbers[num][digit];
+      columnSum += numberList[num][digit];
     }
     sum += (columnSum % 10);
     carryover = Math.floor(columnSum / 10);

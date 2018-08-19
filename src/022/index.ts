@@ -1,11 +1,12 @@
 import * as path from 'path';
-import { computeAlphabeticalValue } from './alphabetical-value';
-import { readNames } from './names';
 
-const FILE = 'input.txt';
+import { computeAlphabeticalValue } from './alphabetical-value';
+import { getInputNames } from './input/input-names';
+
+const FILE = 'input/input.txt';
 
 const inputPath = path.join(__dirname, FILE);
-const inputNames = readNames(inputPath).sort();
+const inputNames = getInputNames(inputPath).sort();
 
 const result = computeTotalNameScores(inputNames);
 console.log(result);

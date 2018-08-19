@@ -1,12 +1,12 @@
 import * as path from 'path';
 
-import { getNumberGrid } from './number-grid';
+import { getInputNumberGrid } from './input/input-number-grid';
 
-const FILE = 'input.txt';
+const FILE = 'input/input.txt';
 const N = 20;
 
 const inputPath = path.join(__dirname, FILE);
-const inputGrid = getNumberGrid(inputPath, N, N);
+const inputGrid = getInputNumberGrid(inputPath, N, N);
 
 const result = greatestProductOf4Adjacent(inputGrid, N, N);
 console.log(result);

@@ -2,12 +2,12 @@ import * as path from 'path';
 
 import { computeAlphabeticalValue } from '../022/alphabetical-value';
 import { PolygonalNumberUtil, TriangularNumberGenerator } from '../common/polygonal-number';
-import { readWords } from './words';
+import { getInputWords } from './input/input-words';
 
-const FILE = 'input.txt';
+const FILE = 'input/input.txt';
 
 const inputPath = path.join(__dirname, FILE);
-const inputWords = readWords(inputPath);
+const inputWords = getInputWords(inputPath);
 
 const triangularNumberUtil = new PolygonalNumberUtil(TriangularNumberGenerator());
 

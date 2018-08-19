@@ -1,9 +1,12 @@
 import * as path from 'path';
 
-import { findMaxPathTotal, readFromFile } from './number-triangle';
+import { getInputNumberTriangle } from './input/input-number-triangle';
+import { findMaxPathTotal } from './number-triangle';
 
-const FILE = 'input.txt';
+const FILE = 'input/input.txt';
 
 const inputPath = path.join(__dirname, FILE);
-const result = findMaxPathTotal(readFromFile(inputPath));
+const inputNumberTriangle = getInputNumberTriangle(inputPath);
+
+const result = findMaxPathTotal(inputNumberTriangle);
 console.log(result);

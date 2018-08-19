@@ -1,6 +1,6 @@
-import { readAllLines } from '../common/util';
+import { readAllLines } from '../../common/util';
 
-export function getNumberGrid(path: string, gridWidth: number, gridHeight: number): number[][] {
+export function getInputNumberGrid(path: string, gridWidth: number, gridHeight: number): number[][] {
   const rawRows = readAllLines(path);
 
   const rows: number[][] = [];
