@@ -21,3 +21,11 @@ export function factorial(num: number): number {
   }
   return result;
 }
+
+export function memoizeDigitTransform(transform: (num: number) => number): number[] {
+  const result = new Array<number>(10);
+  for (let i = 0; i <= 9; i++) {
+    result[i] = transform(i);
+  }
+  return result;
+}

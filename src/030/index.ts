@@ -1,8 +1,7 @@
-export {};
+import { memoizeDigitTransform } from '../common/util';
 
 const POWER = 5;
-
-const digitPower = memoizeDigitPowers(POWER);
+const digitPower = memoizeDigitTransform(digit => Math.pow(digit, POWER));
 
 const result = sumAllNumbersThatEqualSumOfDigitsPowered();
 console.log(result);
@@ -27,15 +26,4 @@ function sumDigitsPowered(num: number): number {
     num = Math.floor(num / 10);
   }
   return sum;
-}
-
-function memoizeDigitPowers(exponent: number): number[] {
-  const power: number[] = [];
-  for (let digit = 0; digit <= 9; digit++) {
-    power[digit] = digit;
-    for (let i = 1; i < exponent; i++) {
-      power[digit] *= digit;
-    }
-  }
-  return power;
 }

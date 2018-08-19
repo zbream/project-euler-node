@@ -1,4 +1,6 @@
-const digitFactorial = memoizeDigitFactorials();
+import { factorial, memoizeDigitTransform } from '../common/util';
+
+const digitFactorial = memoizeDigitTransform(digit => factorial(digit));
 
 const result = sumOfAllCurious();
 console.log(result);
@@ -25,13 +27,4 @@ function isCurious(num: number): boolean {
     num = Math.floor(num / 10);
   }
   return (originalNum === sum);
-}
-
-function memoizeDigitFactorials(): number[] {
-  const factorial: number[] = [];
-  factorial[0] = 1;
-  for (let digit = 1; digit <= 9; digit++) {
-    factorial[digit] = factorial[digit - 1] * digit;
-  }
-  return factorial;
 }
