@@ -8,12 +8,14 @@
   "author": "zbream",
   "license": "ISC",
   "devDependencies": {
+    "@types/big-integer": "0.0.31",
     "@types/node": "^10.5.8",
     "cpx": "^1.5.0",
     "ts-node": "^7.0.0",
     "typescript": "^3.0.1"
   },
   "dependencies": {
+    "big-integer": "^1.6.34",
     "rxjs": "^6.2.2"
   }
 }
