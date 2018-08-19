@@ -1,3 +1,9 @@
+const ONES = [0, 3, 3, 5, 4, 4, 3, 5, 5, 4];
+const TEENS = [3, 6, 6, 8, 8, 7, 7, 9, 8, 8];
+const TENS = [0, 0, 6, 6, 5, 5, 5, 7, 6, 6];
+const GROUPINGS = [0, 0, 7, 8];
+const AND = 3;
+
 export function countLettersInNumber(num: number): number {
   let total = 0;
 
@@ -35,9 +41,3 @@ export function countLettersInNumber(num: number): number {
 
   return total;
 }
-
-const ONES = [0, 3, 3, 5, 4, 4, 3, 5, 5, 4];
-const TEENS = [3, 6, 6, 8, 8, 7, 7, 9, 8, 8];
-const TENS = [0, 0, 6, 6, 5, 5, 5, 7, 6, 6];
-const GROUPINGS = [0, 0, 7, 8];
-const AND = 3;

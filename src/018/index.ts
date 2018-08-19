@@ -1,6 +1,6 @@
 import * as path from 'path';
 
-import { readFromFile, findMaxPathTotal } from './number-triangle';
+import { findMaxPathTotal, readFromFile } from './number-triangle';
 
 const FILE = 'input.txt';
 

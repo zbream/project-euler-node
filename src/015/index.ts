@@ -30,9 +30,10 @@ function countPathsToCorner(gridWidth: number, gridHeight: number): number {
   }
 
   // go through each remaining cell, determine possible routes based on right/bottom
-  for (let row = height - 2; row >= 0; row--)
-  for (let col = width - 2; col >= 0; col--) {
-    routes[row][col] = routes[row + 1][col] + routes[row][col + 1];
+  for (let row = height - 2; row >= 0; row--) {
+    for (let col = width - 2; col >= 0; col--) {
+      routes[row][col] = routes[row + 1][col] + routes[row][col + 1];
+    }
   }
 
   // and from the origin?

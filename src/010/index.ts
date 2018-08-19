@@ -9,8 +9,9 @@ console.log(result);
 function sumOfPrimesBelow(upperLimit: number) {
   let sum = 0;
   for (let i = 2; i < upperLimit; i++) {
-    if (isPrime(i))
-    sum += i;
+    if (isPrime(i)) {
+      sum += i;
+    }
   }
   return sum;
 }

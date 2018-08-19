@@ -1,5 +1,5 @@
 import { PrimeCache } from '../common/prime';
-import { numDigits } from '../common/util';
+import { countDigits } from '../common/util';
 
 const primeCache = new PrimeCache();
 
@@ -17,7 +17,7 @@ function countCircularPrimesBelow(upperLimit: number): number {
 }
 
 function isCircularPrime(num: number): boolean {
-  const digits = numDigits(num);
+  const digits = countDigits(num);
   const originalNum = num;
   do {
     if (!primeCache.isPrime(num)) {

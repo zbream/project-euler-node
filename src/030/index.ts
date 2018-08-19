@@ -3,17 +3,22 @@ export {};
 const POWER = 5;
 
 const digitPower = memoizeDigitPowers(POWER);
-const min = 10;
-const max = digitPower[9] * 6;
 
-let sum = 0;
-for (let i = min; i <= max; i++) {
-  if (i === sumDigitsPowered(i)) {
-    sum += i;
+const result = sumAllNumbersThatEqualSumOfDigitsPowered();
+console.log(result);
+
+function sumAllNumbersThatEqualSumOfDigitsPowered(): number {
+  const min = 10;
+  const max = digitPower[9] * 6;
+
+  let sum = 0;
+  for (let i = min; i <= max; i++) {
+    if (i === sumDigitsPowered(i)) {
+      sum += i;
+    }
   }
+  return sum;
 }
-
-console.log(sum);
 
 function sumDigitsPowered(num: number): number {
   let sum = 0;

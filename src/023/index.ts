@@ -1,12 +1,17 @@
 import { getFactors } from '../common/factor';
 
-let sum = 0;
-for (let i = 1; i <= 28123; i++) {
-  if (!isSumOfAbundant(i)) {
-    sum += i;
+const result = sumOfAllNonAbundantUpTo(28123);
+console.log(result);
+
+function sumOfAllNonAbundantUpTo(upperLimit: number) {
+  let sum = 0;
+  for (let i = 1; i <= upperLimit; i++) {
+    if (!isSumOfAbundant(i)) {
+      sum += i;
+    }
   }
+  return sum;
 }
-console.log(sum);
 
 function isSumOfAbundant(num: number): boolean {
   const maxAddend = Math.floor(num / 2);

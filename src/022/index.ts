@@ -18,5 +18,3 @@ function computeTotalNameScores(names: string[]): number {
       return sum + (alphabeticalValue * alphabeticalPosition);
     }, 0);
 }
-
-

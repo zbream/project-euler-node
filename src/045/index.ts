@@ -1,6 +1,10 @@
-import { PolygonalNumberUtil, PentagonalNumberGenerator, HexagonalNumberGenerator, TriangularNumberGenerator } from "../common/polygonal-number";
+import {
+  HexagonalNumberGenerator,
+  PentagonalNumberGenerator,
+  PolygonalNumberUtil,
+  TriangularNumberGenerator,
+} from '../common/polygonal-number';
 
-const triangularGenerator = TriangularNumberGenerator();
 const pentagonalNumbers = new PolygonalNumberUtil(PentagonalNumberGenerator());
 const hexagonalNumbers = new PolygonalNumberUtil(HexagonalNumberGenerator());
 
@@ -9,8 +13,7 @@ console.log(result);
 
 function findTriangularPentagonalHexagonalNumbers(toFind: number): number {
   let found = 0;
-  const triangularGenerator = TriangularNumberGenerator();
-  for (const num of triangularGenerator) {
+  for (const num of TriangularNumberGenerator()) {
     if (isPentagonalAndHexagonal(num)) {
       console.log(num);
       found++;

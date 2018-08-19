@@ -10,7 +10,8 @@ export function* ChampernowneGenerator() {
       n = Math.floor(n / 10);
     }
     // pop until we run out
-    let current: number | undefined;;
+    let current: number | undefined;
+    // tslint:disable-next-line:no-conditional-assignment
     while ((current = stack.pop()) !== undefined) {
       yield current;
     }

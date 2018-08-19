@@ -6,7 +6,7 @@ export function readAllLines(path: string): string[] {
     .split('\n');
 }
 
-export function numDigits(num: number): number {
+export function countDigits(num: number): number {
   return Math.floor(Math.log10(Math.abs(num)) + 1);
 }
 

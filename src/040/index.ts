@@ -1,6 +1,6 @@
-import { ChampernowneTermUtil } from "./champernowne";
+import { ChampernowneTermUtil } from './champernowne';
 
-const champernowne = new ChampernowneTermUtil()
+const champernowne = new ChampernowneTermUtil();
 
 let product = 1;
 

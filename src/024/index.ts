@@ -7,7 +7,7 @@ const result = findNthPermutation(DIGITS, N - 1);
 console.log(result);
 
 function findNthPermutation(chars: string[], n: number) {
-  let result = '';
+  let resultPermutation = '';
 
   const listRemainingChars = chars.slice();
   let nthPermutationOfRemainingChars = n;
@@ -18,11 +18,11 @@ function findNthPermutation(chars: string[], n: number) {
     // determine what group our desired permutation is in
     const groupIndex = Math.floor(nthPermutationOfRemainingChars / groupSize);
     // this group corresponds to the current position's char, move it to output
-    result += listRemainingChars[groupIndex];
+    resultPermutation += listRemainingChars[groupIndex];
     listRemainingChars.splice(groupIndex, 1);
     // limit the desired permutation to the remaining characters within the group
     nthPermutationOfRemainingChars %= groupSize;
   }
 
-  return result;
+  return resultPermutation;
 }

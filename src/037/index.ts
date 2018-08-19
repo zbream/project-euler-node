@@ -1,5 +1,5 @@
 import { PrimeCache } from '../common/prime';
-import { numDigits } from '../common/util';
+import { countDigits } from '../common/util';
 
 const primeCache = new PrimeCache();
 
@@ -26,7 +26,7 @@ function isTruncatablePrimeL(num: number) {
     if (!primeCache.isPrime(num)) {
       return false;
     }
-    const digits = numDigits(num);
+    const digits = countDigits(num);
     const mostSignificantPlace = Math.pow(10, digits - 1);
     num %= mostSignificantPlace;
   }

@@ -1,5 +1,5 @@
 export function isPalindrome(value: string | number) {
-  const input = `${value}`
+  const input = `${value}`;
 
   const first = 0;
   const last = input.length - 1;
