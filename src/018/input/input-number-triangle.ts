@@ -5,6 +5,5 @@ export function getInputNumberTriangle(path: string): number[][] {
     .filter(line => line !== '')
     .map(line => line
       .split(' ')
-      .map(s => +s),
-    );
+      .map(s => +s));
 }

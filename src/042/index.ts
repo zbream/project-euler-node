@@ -11,10 +11,10 @@ const inputWords = getInputWords(inputPath);
 
 const triangularNumberUtil = new PolygonalNumberUtil(TriangularNumberGenerator());
 
-const result = countTriangleWords(inputWords);
+const result = numTriangleWords(inputWords);
 console.log(result);
 
-function countTriangleWords(words: string[]): number {
+function numTriangleWords(words: string[]): number {
   let count = 0;
   for (const word of words) {
     if (isTriangleWord(word)) {

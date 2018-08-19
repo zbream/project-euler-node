@@ -7,6 +7,5 @@ export function getInputNumberList(path: string, numRows: number, numDigits: num
     .map(row => [...row]
       .slice(0, numDigits)
       .reverse()
-      .map(s => +s),
-    );
+      .map(s => +s));
 }
