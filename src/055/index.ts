@@ -1,4 +1,4 @@
-import BigInteger, { BigNumber } from 'big-integer';
+import BigInteger from 'big-integer';
 
 import { isPalindrome } from '../common/palindrome';
 
@@ -28,7 +28,7 @@ function isLychrelNumber(num: number, maxIterations: number): boolean {
   throw new Error();
 }
 
-function* ReverseAddGenerator(seed: BigNumber) {
+function* ReverseAddGenerator(seed: BigInteger.BigNumber) {
   let value = BigInteger(seed as any);
   while (true) {
     let trash = value;
