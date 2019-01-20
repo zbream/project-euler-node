@@ -24,7 +24,7 @@ export function HexagonalNumberGenerator() {
 
 export class PolygonalNumberUtil {
 
-  private readonly cache = new Map<number, boolean>();
+  private readonly cache = new Set<number>();
   private highestPolygonalNumber = -1;
 
   constructor(private generator: IterableIterator<number>) {}
@@ -37,7 +37,7 @@ export class PolygonalNumberUtil {
       while (true) {
         polygonalNumber = this.generator.next().value;
         this.highestPolygonalNumber = polygonalNumber;
-        this.cache.set(polygonalNumber, true);
+        this.cache.add(polygonalNumber);
         if (polygonalNumber >= num) {
           break;
         }
