@@ -1,4 +1,4 @@
-export function* ChampernowneGenerator() {
+export function* ChampernowneGenerator(): Generator<number, never, void> {
   const stack: number[] = [];
   let nextInt = 1;
 
