@@ -1,5 +1,3 @@
-import BigInteger from 'big-integer';
-
 import { isPalindrome } from '../common/palindrome';
 
 const result = numLychrelNumbersBelow(10000, 50);
@@ -28,17 +26,18 @@ function isLychrelNumber(num: number, maxIterations: number): boolean {
   throw new Error();
 }
 
-function* ReverseAddGenerator(seed: BigInteger.BigNumber) {
-  let value = BigInteger(seed as any);
+function* ReverseAddGenerator(seed: number) {
+  let value = BigInt(seed);
   while (true) {
     let trash = value;
-    let reversed = BigInteger.zero;
-    while (!trash.isZero()) {
-      const { quotient, remainder } = trash.divmod(10);
-      reversed = reversed.times(10).plus(remainder);
+    let reversed = 0n;
+    while (trash !== 0n) {
+      const quotient = trash / 10n;
+      const remainder = trash % 10n;
+      reversed = reversed * 10n + remainder;
       trash = quotient;
     }
-    value = value.add(reversed);
+    value = value + reversed;
     yield value;
   }
 }

@@ -10,17 +10,15 @@
     "clean": "rimraf ./dist"
   },
   "dependencies": {
-    "big-integer": "^1.6.48",
-    "rxjs": "^6.5.4"
+    "rxjs": "^6.5.5"
   },
   "devDependencies": {
-    "@types/big-integer": "0.0.31",
-    "@types/node": "^12.12.26",
+    "@types/node": "^12.12.42",
     "cpx": "^1.5.0",
-    "rimraf": "^3.0.1",
-    "ts-node": "^8.6.2",
+    "rimraf": "^3.0.2",
+    "ts-node": "^8.10.1",
     "tslint": "^5.20.1",
-    "typescript": "^3.7.5",
+    "typescript": "^3.9.3",
     "zbream-standards": "0.0.0-beta.11"
   }
 }
