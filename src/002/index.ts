@@ -1,7 +1,8 @@
 import { FibonacciGenerator } from '../common/fibonacci';
 
-const result = sumOfEvenFibonacciValuesBelow(4000000);
-console.log(result);
+export function main002() {
+  return sumOfEvenFibonacciValuesBelow(4000000);
+}
 
 function sumOfEvenFibonacciValuesBelow(upperLimit: number): number {
   let sum = 0;

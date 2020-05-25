@@ -1,8 +1,6 @@
-// treat file as module
-export {};
-
-const result = sumOfMultiplesOf3And5Below(1000);
-console.log(result);
+export function main001() {
+  return sumOfMultiplesOf3And5Below(1000);
+}
 
 function sumOfMultiplesOf3And5Below(upperLimit: number) {
   let sum = 0;

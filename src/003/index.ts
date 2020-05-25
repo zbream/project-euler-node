@@ -1,10 +1,12 @@
 import { isPrime } from '../common/prime';
 
-const test = maxPrimeFactorOf(13195);
-console.log(test);
+export function main003() {
+  return maxPrimeFactorOf(600851475143);
+}
 
-const result = maxPrimeFactorOf(600851475143);
-console.log(result);
+export function example003() {
+  return maxPrimeFactorOf(13195);
+}
 
 function maxPrimeFactorOf(num: number): number {
   let i = Math.ceil(Math.sqrt(num));

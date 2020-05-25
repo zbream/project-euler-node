@@ -1,10 +1,10 @@
 import { factorial, range } from '../common/util';
 
-const DIGITS = range(0, 10).map(num => `${num}`);
-const N = 1000000;
-
-const result = findNthPermutation(DIGITS, N - 1);
-console.log(result);
+export function main024() {
+  const digits = range(0, 10).map(num => `${num}`);
+  const n = 1000000;
+  return +findNthPermutation(digits, n - 1);
+}
 
 function findNthPermutation(chars: string[], n: number) {
   let resultPermutation = '';

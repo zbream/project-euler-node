@@ -5,17 +5,21 @@
   "author": "zbream",
   "license": "ISC",
   "scripts": {
-    "build": "tsc && cpx \"./src/**/*.!(ts)\" \"./dist\"",
+    "build": "tsc -p tsconfig.build.json && cpx \"./src/**/*.txt\" \"./dist\"",
     "lint": "tslint -p .",
-    "clean": "rimraf ./dist"
+    "clean": "rimraf ./dist",
+    "test": "jest"
   },
   "dependencies": {
     "rxjs": "^6.5.5"
   },
   "devDependencies": {
+    "@types/jest": "^25.2.3",
     "@types/node": "^12.12.42",
     "cpx": "^1.5.0",
+    "jest": "^26.0.1",
     "rimraf": "^3.0.2",
+    "ts-jest": "^26.0.0",
     "ts-node": "^8.10.1",
     "tslint": "^5.20.1",
     "typescript": "^3.9.3",

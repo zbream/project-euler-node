@@ -1,17 +1,16 @@
-import * as path from 'path';
+import { join } from 'path';
 
 import { getInputNumberGrid } from './input/input-number-grid';
 
-const FILE = 'input/input.txt';
-const N = 20;
+export function main011() {
+  const inputPath = join(__dirname, 'input/input.txt');
+  const n = 20;
 
-const inputPath = path.join(__dirname, FILE);
-const inputGrid = getInputNumberGrid(inputPath, N, N);
+  const inputGrid = getInputNumberGrid(inputPath, n, n);
+  return greatestProductOfFourAdjacent(inputGrid, n, n);
+}
 
-const result = greatestProductOf4Adjacent(inputGrid, N, N);
-console.log(result);
-
-function greatestProductOf4Adjacent(grid: number[][], gridWidth: number, gridHeight: number): number {
+function greatestProductOfFourAdjacent(grid: number[][], gridWidth: number, gridHeight: number): number {
   let greatestProduct = 0;
   function check(product: number) {
     if (product > greatestProduct) {

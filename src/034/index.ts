@@ -2,8 +2,13 @@ import { factorial, memoizeDigitTransform } from '../common/util';
 
 const digitFactorial = memoizeDigitTransform(digit => factorial(digit));
 
-const result = sumOfAllCurious();
-console.log(result);
+export function main034() {
+  return sumOfAllCurious();
+}
+
+export function example034() {
+  return isCurious(145);
+}
 
 function sumOfAllCurious() {
   let sum = 0;

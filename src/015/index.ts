@@ -2,13 +2,13 @@
 // Consider finding all the combinations that, out of 40 moves, 20 right moves can be made.
 // Essentially, C(40,20) .
 
-export {};
+export function main015() {
+  return countPathsToCorner(20, 20);
+}
 
-const test = countPathsToCorner(2, 2);
-console.log(test);
-
-const result = countPathsToCorner(20, 20);
-console.log(result);
+export function example015() {
+  return countPathsToCorner(2, 2);
+}
 
 function countPathsToCorner(gridWidth: number, gridHeight: number): number {
   // there is 1 more row/column of intersections

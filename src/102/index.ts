@@ -1,14 +1,13 @@
-import * as path from 'path';
+import { join } from 'path';
+
 import { getInputTriangles } from './input/input-triangles';
 import { Point, Triangle, triangleContains } from './triangle';
 
-const PATH = 'input/input.txt';
-
-const inputPath = path.join(__dirname, PATH);
-const inputTriangles = getInputTriangles(inputPath);
-
-const result = numTrianglesContainingOrigin(inputTriangles);
-console.log(result);
+export function main102() {
+  const inputPath = join(__dirname, 'input/input.txt');
+  const inputTriangles = getInputTriangles(inputPath);
+  return numTrianglesContainingOrigin(inputTriangles);
+}
 
 function numTrianglesContainingOrigin(triangles: Triangle[]): number {
   const origin: Point = { x: 0, y: 0 };

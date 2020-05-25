@@ -1,14 +1,15 @@
-export {};
-
-for (let i = 2; i <= 10; i++) {
-  const { result, period } = getRecurringCycle(i);
-  const strPeriod = period ? ` : ${period}` : ``;
-  const str = `1/${i} : ${result}${strPeriod}`;
-  console.log(str);
+export function main026() {
+  return getLongestRecurringCycleBelow(1000);
 }
 
-const longestResult = getLongestRecurringCycleBelow(1000);
-console.log(longestResult);
+function example() {
+  for (let i = 2; i <= 10; i++) {
+    const { result, period } = getRecurringCycle(i);
+    const strPeriod = period ? ` : ${period}` : ``;
+    const str = `1/${i} : ${result}${strPeriod}`;
+    console.log(str);
+  }
+}
 
 function getLongestRecurringCycleBelow(upperD: number) {
   let highestD = 0;

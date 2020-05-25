@@ -1,11 +1,11 @@
-import { PrimeCache } from "../common/prime";
+import { PrimeCache } from '../common/prime';
 
-const primes = new PrimeCache();
+export function main058() {
+  const primes = new PrimeCache();
+  return sideLengthWhereRatioDropsBelow10Percent(primes);
+}
 
-const result = sideLengthWhereRatioDropsBelow10Percent();
-console.log(result);
-
-function sideLengthWhereRatioDropsBelow10Percent(): number {
+function sideLengthWhereRatioDropsBelow10Percent(primes: PrimeCache): number {
   let diagonalTotal = 1;
   let diagonalPrimes = 0;
 

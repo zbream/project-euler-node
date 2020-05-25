@@ -2,8 +2,13 @@ export {};
 
 type TriangleSides = [number, number, number];
 
-const result = findMaxBetween(1, 1000);
-console.log(result);
+export function main039() {
+  return findMaxBetween(1, 1000);
+}
+
+export function example039() {
+  return numSolutionsFor(120);
+}
 
 function findMaxBetween(p1: number, p2: number) {
   let maxP = 0;

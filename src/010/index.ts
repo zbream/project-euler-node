@@ -1,10 +1,12 @@
 import { isPrime } from '../common/prime';
 
-const test = sumOfPrimesBelow(10);
-console.log(test);
+export function main010() {
+  return sumOfPrimesBelow(2000000);
+}
 
-const result = sumOfPrimesBelow(2000000);
-console.log(result);
+export function example010() {
+  return sumOfPrimesBelow(10);
+}
 
 function sumOfPrimesBelow(upperLimit: number) {
   let sum = 0;

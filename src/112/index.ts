@@ -1,7 +1,6 @@
-export {};
-
-const result = numWhereProportionOfBouncyReaches(0.99);
-console.log(result);
+export function main112() {
+  return numWhereProportionOfBouncyReaches(0.99);
+}
 
 function numWhereProportionOfBouncyReaches(proportion: number): number {
   let numBouncy = 0;

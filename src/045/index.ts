@@ -5,17 +5,21 @@ import {
   TriangularNumberGenerator,
 } from '../common/polygonal-number';
 
-const pentagonalNumbers = new PolygonalNumberUtil(PentagonalNumberGenerator());
-const hexagonalNumbers = new PolygonalNumberUtil(HexagonalNumberGenerator());
+export function main045() {
+  const pentagonalNumbers = new PolygonalNumberUtil(PentagonalNumberGenerator());
+  const hexagonalNumbers = new PolygonalNumberUtil(HexagonalNumberGenerator());
+  return findTriangularPentagonalHexagonalNumbers(pentagonalNumbers, hexagonalNumbers, 4);
+}
 
-const result = findTriangularPentagonalHexagonalNumbers(4);
-console.log(result);
-
-function findTriangularPentagonalHexagonalNumbers(toFind: number): number {
+function findTriangularPentagonalHexagonalNumbers(
+  pentagonalNumbers: PolygonalNumberUtil,
+  hexagonalNumbers: PolygonalNumberUtil,
+  toFind: number,
+): number {
   let found = 0;
   for (const num of TriangularNumberGenerator()) {
-    if (isPentagonalAndHexagonal(num)) {
-      console.log(num);
+    const isPentagonalAndHexagonal = pentagonalNumbers.isNumber(num) && hexagonalNumbers.isNumber(num);
+    if (isPentagonalAndHexagonal) {
       found++;
     }
     if (found === toFind) {
@@ -23,8 +27,4 @@ function findTriangularPentagonalHexagonalNumbers(toFind: number): number {
     }
   }
   throw new Error();
-}
-
-function isPentagonalAndHexagonal(num: number): boolean {
-  return pentagonalNumbers.isNumber(num) && hexagonalNumbers.isNumber(num);
 }

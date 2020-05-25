@@ -1,10 +1,10 @@
-export {};
+export function main028() {
+  return sumOfDiagonals(1001);
+}
 
-const test = sumOfDiagonals(5);
-console.log(test);
-
-const result = sumOfDiagonals(1001);
-console.log(result);
+export function example028() {
+  return sumOfDiagonals(5);
+}
 
 function sumOfDiagonals(rowCount: number): number {
   let sum = 1;

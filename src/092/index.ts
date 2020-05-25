@@ -2,8 +2,9 @@ import { memoizeDigitTransform } from '../common/util';
 
 const digitSquared = memoizeDigitTransform(digit => digit * digit);
 
-const result = numChainsWhereFinalIs89UpTo(10000000);
-console.log(result);
+export function main092() {
+  return numChainsWhereFinalIs89UpTo(10000000);
+}
 
 function numChainsWhereFinalIs89UpTo(upperLimit: number): number {
   let count = 0;

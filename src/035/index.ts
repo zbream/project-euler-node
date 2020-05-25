@@ -3,8 +3,15 @@ import { countDigits } from '../common/util';
 
 const primeCache = new PrimeCache();
 
-const result = countCircularPrimesBelow(1000000);
-console.log(result);
+main035();
+
+export function main035() {
+  return countCircularPrimesBelow(1000000);
+}
+
+export function example035() {
+  return isCircularPrime(197);
+}
 
 function countCircularPrimesBelow(upperLimit: number): number {
   let count = 0;

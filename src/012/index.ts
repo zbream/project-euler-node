@@ -1,11 +1,13 @@
 import { getFactors } from '../common/factor';
 import { TriangularNumberGenerator } from '../common/polygonal-number';
 
-const test = firstTriangleNumberWithOverNumFactors(5);
-console.log(test);
+export function main012() {
+  return firstTriangleNumberWithOverNumFactors(500);
+}
 
-const result = firstTriangleNumberWithOverNumFactors(500);
-console.log(result);
+export function example012() {
+  return firstTriangleNumberWithOverNumFactors(5);
+}
 
 function firstTriangleNumberWithOverNumFactors(num: number): number {
   for (const triangleNumber of TriangularNumberGenerator()) {

@@ -1,7 +1,6 @@
-export {};
-
-const result = findSmallestPermutedMultiple();
-console.log(result);
+export function main052() {
+  return findSmallestPermutedMultiple();
+}
 
 function findSmallestPermutedMultiple(): number {
   for (let i = 1;; i++) {

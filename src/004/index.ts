@@ -1,10 +1,12 @@
 import { isPalindrome } from '../common/palindrome';
 
-const test = maxPalindromeProductOfTwoFactorsBelow(100);
-console.log(test);
+export function main004() {
+  return maxPalindromeProductOfTwoFactorsBelow(1000);
+}
 
-const result = maxPalindromeProductOfTwoFactorsBelow(1000);
-console.log(result);
+export function example004() {
+  return maxPalindromeProductOfTwoFactorsBelow(100);
+}
 
 function maxPalindromeProductOfTwoFactorsBelow(upperLimit: number) {
   let largestProduct = 0;

@@ -1,10 +1,10 @@
-export {};
+export function main005() {
+  return smallestNumberDivisibleByAllUpTo(20);
+}
 
-const test = smallestNumberDivisibleByAllUpTo(10);
-console.log(test);
-
-const result = smallestNumberDivisibleByAllUpTo(20);
-console.log(result);
+export function example005() {
+  return smallestNumberDivisibleByAllUpTo(10);
+}
 
 function smallestNumberDivisibleByAllUpTo(upperLimitInclusive: number): number {
   let testNumber = 1;

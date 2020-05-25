@@ -1,7 +1,8 @@
 import { isPalindrome } from '../common/palindrome';
 
-const result = numLychrelNumbersBelow(10000, 50);
-console.log(result);
+export function main055() {
+  return numLychrelNumbersBelow(10000, 50);
+}
 
 function numLychrelNumbersBelow(upperLimit: number, maxIterations: number): number {
   let count = 0;

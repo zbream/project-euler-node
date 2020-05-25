@@ -1,10 +1,12 @@
 import { isPrime } from '../common/prime';
 
-const test = nthPrime(6);
-console.log(test);
+export function main007() {
+  return nthPrime(10001);
+}
 
-const result = nthPrime(10001);
-console.log(result);
+export function example007() {
+  return nthPrime(6);
+}
 
 function nthPrime(n: number): number {
   let testNumber = 1;

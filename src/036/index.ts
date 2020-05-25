@@ -1,7 +1,12 @@
 import { isPalindrome } from '../common/palindrome';
 
-const result = sumOfAllPalindromicInBasesBelow(1000000);
-console.log(result);
+export function main036() {
+  return sumOfAllPalindromicInBasesBelow(1000000);
+}
+
+export function example036() {
+  return isPalindromicInBases(585);
+}
 
 function sumOfAllPalindromicInBasesBelow(upperLimit: number): number {
   let sum = 0;

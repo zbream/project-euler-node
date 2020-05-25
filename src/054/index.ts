@@ -1,15 +1,13 @@
-import * as path from 'path';
+import { join } from 'path';
 
 import { getInputPokerGames } from './input/input-poker-games';
 import { PokerGame, PokerGameWinner } from './poker/poker-game';
 
-const FILE = 'input/input.txt';
-
-const inputPath = path.join(__dirname, FILE);
-const inputPokerGames = getInputPokerGames(inputPath);
-
-const result = numPlayer1Wins(inputPokerGames);
-console.log(result);
+export function main054() {
+  const inputPath = join(__dirname, 'input/input.txt');
+  const inputPokerGames = getInputPokerGames(inputPath);
+  return numPlayer1Wins(inputPokerGames);
+}
 
 function numPlayer1Wins(rawPokerGames: string[]): number {
   let count = 0;

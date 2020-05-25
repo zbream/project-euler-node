@@ -1,9 +1,8 @@
-export {};
-
-const result = pythagoreanTripletWhereSumEquals(1000);
-if (result) {
-  const product = result[0] * result[1] * result[2];
-  console.log(product);
+export function main009() {
+  const triplet = pythagoreanTripletWhereSumEquals(1000);
+  if (triplet) {
+    return triplet[0] * triplet[1] * triplet[2];
+  }
 }
 
 function pythagoreanTripletWhereSumEquals(num: number): [number, number, number] | undefined {

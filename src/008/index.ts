@@ -1,31 +1,28 @@
-import * as path from 'path';
+import { join } from 'path';
+import { map, reduce } from 'rxjs/operators';
 
 import { getInputDigitStream$ } from './input/input-digit-stream';
 import { ProductQueue } from './product-queue';
 
-const FILE = 'input/input.txt';
+const inputPath = join(__dirname, 'input/input.txt');
 
-const inputPath = path.join(__dirname, FILE);
-const digits$ = getInputDigitStream$(inputPath);
+export function main008() {
+  return findGreatestProductOfAdjacentDigits$(inputPath, 13);
+}
 
-const testProductQueue = new ProductQueue(4);
-let testGreatestProduct = 0;
-const resultProductQueue = new ProductQueue(13);
-let resultGreatestProduct = 0;
+export function example008() {
+  return findGreatestProductOfAdjacentDigits$(inputPath, 4);
+}
 
-digits$.subscribe({
-  next: digit => {
-    const testProduct = testProductQueue.nextFactor(digit);
-    if (testProduct > testGreatestProduct) {
-      testGreatestProduct = testProduct;
-    }
-    const resultProduct = resultProductQueue.nextFactor(digit);
-    if (resultProduct > resultGreatestProduct) {
-      resultGreatestProduct = resultProduct;
-    }
-  },
-  complete: () => {
-    console.log(testGreatestProduct);
-    console.log(resultGreatestProduct);
-  },
-});
+function findGreatestProductOfAdjacentDigits$(path: string, digits: number) {
+  return getInputDigitStream$(path).pipe(
+    reduce(({ productQueue, productGreatest }, digit) => {
+      const product = productQueue.nextFactor(digit);
+      if (product > productGreatest) {
+        productGreatest = product;
+      }
+      return { productQueue, productGreatest };
+    }, { productQueue: new ProductQueue(digits), productGreatest: 0 }),
+    map(({ productGreatest }) => productGreatest),
+  );
+}

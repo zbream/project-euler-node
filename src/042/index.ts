@@ -1,30 +1,32 @@
-import * as path from 'path';
+import { join } from 'path';
 
 import { computeAlphabeticalValue } from '../022/alphabetical-value';
 import { PolygonalNumberUtil, TriangularNumberGenerator } from '../common/polygonal-number';
 import { getInputWords } from './input/input-words';
 
-const FILE = 'input/input.txt';
+export function main042() {
+  const inputPath = join(__dirname, 'input/input.txt');
+  const inputWords = getInputWords(inputPath);
+  const triangleNumbers = new PolygonalNumberUtil(TriangularNumberGenerator());
+  return numTriangleWords(triangleNumbers, inputWords);
+}
 
-const inputPath = path.join(__dirname, FILE);
-const inputWords = getInputWords(inputPath);
+export function example042() {
+  const triangleNumbers = new PolygonalNumberUtil(TriangularNumberGenerator());
+  return isTriangleWord(triangleNumbers, 'SKY');
+}
 
-const triangularNumberUtil = new PolygonalNumberUtil(TriangularNumberGenerator());
-
-const result = numTriangleWords(inputWords);
-console.log(result);
-
-function numTriangleWords(words: string[]): number {
+function numTriangleWords(triangleNumbers: PolygonalNumberUtil, words: string[]): number {
   let count = 0;
   for (const word of words) {
-    if (isTriangleWord(word)) {
+    if (isTriangleWord(triangleNumbers, word)) {
       count++;
     }
   }
   return count;
 }
 
-function isTriangleWord(word: string): boolean {
+function isTriangleWord(triangleNumbers: PolygonalNumberUtil, word: string): boolean {
   const wordValue = computeAlphabeticalValue(word);
-  return triangularNumberUtil.isNumber(wordValue);
+  return triangleNumbers.isNumber(wordValue);
 }

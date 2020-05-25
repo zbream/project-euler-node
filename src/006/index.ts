@@ -1,10 +1,10 @@
-export {};
+export function main006() {
+  return diff(100);
+}
 
-const test = diff(10);
-console.log(test);
-
-const result = diff(100);
-console.log(result);
+export function example006() {
+  return diff(10);
+}
 
 function diff(upperLimitInclusive: number): number {
   return squareOfSum(upperLimitInclusive) - sumOfSquares(upperLimitInclusive);

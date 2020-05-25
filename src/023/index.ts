@@ -1,7 +1,8 @@
 import { getFactors } from '../common/factor';
 
-const result = sumOfAllNonAbundantUpTo(28123);
-console.log(result);
+export function main023() {
+  return sumOfAllNonAbundantUpTo(28123);
+}
 
 function sumOfAllNonAbundantUpTo(upperLimit: number) {
   let sum = 0;

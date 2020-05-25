@@ -1,7 +1,8 @@
 import { getCollatzChainLength } from './collatz';
 
-const result = maxCollatzChainLengthUnder(1000000);
-console.log(result);
+export function main014() {
+  return maxCollatzChainLengthUnder(1000000);
+}
 
 function maxCollatzChainLengthUnder(upperLimit: number) {
   let maxNumber = 0;

@@ -3,8 +3,13 @@ import { countDigits } from '../common/util';
 
 const primeCache = new PrimeCache();
 
-const result = sumAllInteresting();
-console.log(result);
+export function main037() {
+  return sumAllInteresting();
+}
+
+export function example037() {
+  return isInteresting(3797);
+}
 
 function sumAllInteresting() {
   let sum = 0;

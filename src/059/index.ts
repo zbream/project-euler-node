@@ -1,17 +1,40 @@
-import * as path from 'path';
+import { join } from 'path';
 
 import { getInputBytes } from './input/input-bytes';
 import { KeyGenerator } from './key-generator';
 
-const FILE = 'input/input.txt';
-const UNREASONABLE = '#$%^&*{}`~';
+const UNREASONABLE = '#$%^&*{}`~'
+  .split('')
+  .map(char => char.charCodeAt(0));
 
-const inputPath = path.join(__dirname, FILE);
-const inputBytes = getInputBytes(inputPath);
+export function main059() {
+  const inputPath = join(__dirname, 'input/input.txt');
+  const inputBytes = getInputBytes(inputPath);
+  const decryptions = findReasonableDecryptions(inputBytes);
+  for (const [key, decryption] of decryptions) {
+    const strKey = convertBytesToString(key);
+    const strDecryption = convertBytesToString(decryption);
+    console.log(`${strKey}: ${strDecryption}`);
+    console.log(decryption[1]);
+  }
+  if (decryptions.length !== 1) {
+    throw new Error('Only one decryption should have been found.');
+  }
+  return decryptions[0][1].reduce((sum, curr) => sum + curr, 0);
+}
 
-const unreasonableChars = UNREASONABLE.split('').map(char => char.charCodeAt(0));
-
-showReasonableDecryptions(inputBytes);
+function findReasonableDecryptions(encrypted: number[]) {
+  const reasonableDecryptions: Array<[number[], number[]]> = [];
+  for (const key of KeyGenerator()) {
+    const decrypted = decrypt(encrypted, key);
+    // attempt to trim the result of messier texts
+    if (!isReasonable(decrypted)) {
+      continue;
+    }
+    reasonableDecryptions.push([key, decrypted]);
+  }
+  return reasonableDecryptions;
+}
 
 function showReasonableDecryptions(encrypted: number[]): void {
   for (const key of KeyGenerator()) {
@@ -27,7 +50,7 @@ function showReasonableDecryptions(encrypted: number[]): void {
 }
 
 function isReasonable(decrypted: number[]): boolean {
-  for (const unreasonableChar of unreasonableChars) {
+  for (const unreasonableChar of UNREASONABLE) {
     if (decrypted.indexOf(unreasonableChar) > -1) {
       return false;
     }
