@@ -13,3 +13,7 @@ export function* FactorGenerator(num: number): IterableIterator<number> {
 export function getFactors(num: number): number[] {
   return [...FactorGenerator(num)];
 }
+
+export function getGreatestCommonDivisor(a: number, b: number): number {
+  return b ? getGreatestCommonDivisor(b, a % b) : a;
+}
