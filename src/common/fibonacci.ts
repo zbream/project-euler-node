@@ -1,10 +1,18 @@
-export function* FibonacciGenerator({ f0, f1 }: { f0: number, f1: number } = { f0: 0, f1: 1 }) {
+interface FibonacciGeneratorInit<T> {
+  f0: T;
+  f1: T;
+}
+
+export function FibonacciGenerator({ f0, f1 }: FibonacciGeneratorInit<number>): Generator<number, void, unknown>;
+export function FibonacciGenerator({ f0, f1 }: FibonacciGeneratorInit<bigint>): Generator<bigint, void, unknown>;
+export function* FibonacciGenerator({ f0, f1 }: FibonacciGeneratorInit<number> | FibonacciGeneratorInit<bigint>) {
   let curr = f0;
   let next = f1;
 
   while (true) {
     yield curr;
-    [curr, next] = [next, curr + next];
+    // TypeScript can't interpret the difference between number `+` and bigint `+`.
+    [curr, next] = [next, (curr as any) + (next as any)];
   }
 }
 
