@@ -24,7 +24,7 @@ export function main059() {
 }
 
 function findReasonableDecryptions(encrypted: number[]) {
-  const reasonableDecryptions: Array<[number[], number[]]> = [];
+  const reasonableDecryptions: [number[], number[]][] = [];
   for (const key of KeyGenerator()) {
     const decrypted = decrypt(encrypted, key);
     // attempt to trim the result of messier texts
@@ -34,19 +34,6 @@ function findReasonableDecryptions(encrypted: number[]) {
     reasonableDecryptions.push([key, decrypted]);
   }
   return reasonableDecryptions;
-}
-
-function showReasonableDecryptions(encrypted: number[]): void {
-  for (const key of KeyGenerator()) {
-    const decrypted = decrypt(encrypted, key);
-    // attempt to trim the result of messier texts
-    if (!isReasonable(decrypted)) {
-      continue;
-    }
-    const strKey = convertBytesToString(key);
-    const strDecrypted = convertBytesToString(decrypted);
-    console.log(`${strKey}: ${strDecrypted}\n`);
-  }
 }
 
 function isReasonable(decrypted: number[]): boolean {
@@ -63,7 +50,7 @@ function decrypt(encrypted: number[], key: number[]): number[] {
 
   for (let i = 0; i < encrypted.length; i++) {
     const keyPosition = i % key.length;
-    // tslint:disable-next-line no-bitwise
+
     decrypted[i] = encrypted[i] ^ key[keyPosition];
   }
 

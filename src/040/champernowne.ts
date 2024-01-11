@@ -11,7 +11,6 @@ export function* ChampernowneGenerator(): Generator<number, never, void> {
     }
     // pop until we run out
     let current: number | undefined;
-    // tslint:disable-next-line:no-conditional-assignment
     while ((current = stack.pop()) !== undefined) {
       yield current;
     }

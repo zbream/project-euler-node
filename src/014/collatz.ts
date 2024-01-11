@@ -15,6 +15,7 @@ export function* CollatzGenerator(term: number) {
 
 export function getCollatzChainLength(start: number) {
   let terms = 0;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   for (const _ of CollatzGenerator(start)) {
     terms++;
   }

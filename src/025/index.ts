@@ -9,7 +9,7 @@ export function example025() {
 }
 
 function firstTermToContainDigits(digits: number) {
-  const fibonacci = FibonacciGenerator({ f0: 0n, f1: 1n });
+  const fibonacci = FibonacciGenerator(0n, 1n);
   let index = -1;
   for (const term of fibonacci) {
     index++;

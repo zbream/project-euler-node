@@ -34,7 +34,7 @@ export class PolygonalNumberUtil {
     if (num > this.highestPolygonalNumber) {
       // keep going until we either find the number or pass it
       let polygonalNumber: number;
-      while (true) {
+      for (;;) {
         polygonalNumber = this.generator.next().value;
         this.highestPolygonalNumber = polygonalNumber;
         this.cache.add(polygonalNumber);

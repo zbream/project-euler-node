@@ -14,7 +14,7 @@ export function example033() {
 }
 
 function findCurious() {
-  const curious: Array<[number, number]> = [];
+  const curious: [number, number][] = [];
   for (let numerator = 10; numerator <= 99; numerator++) {
     for (let denominator = numerator + 1; denominator <= 99; denominator++) {
       const trivial = (numerator % 10 === 0 && denominator % 10 === 0);

@@ -8,15 +8,15 @@ export function example029() {
 
 function numDistinctTermsInRange(min: number, max: number) {
   const terms = distinctTermsInRange(min, max);
-  return Object.keys(terms).length;
+  return terms.size;
 }
 
 function distinctTermsInRange(min: number, max: number) {
-  const terms: { [key: number]: true } = {};
+  const terms = new Set<number>();
   for (let a = min; a <= max; a++) {
     for (let b = min; b <= max; b++) {
       const term = a ** b;
-      terms[term] = true;
+      terms.add(term);
     }
   }
   return terms;

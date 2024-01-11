@@ -1,7 +1,5 @@
 import { PokerCard } from './poker-card';
 
-// tslint:disable no-conditional-assignment
-
 export const enum PokerHandRank {
   HighCard = 1,
   OnePair,

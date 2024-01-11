@@ -14,7 +14,6 @@ function getInputFileCharStream$(path: string): Observable<string> {
     const stream = fs.createReadStream(path, { encoding: 'utf8' });
     stream.on('readable', () => {
       let chunk: string | null;
-      // tslint:disable-next-line:no-conditional-assignment
       while ((chunk = stream.read(1)) !== null) {
         subscriber.next(chunk);
       }

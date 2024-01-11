@@ -7,7 +7,7 @@ export function main002() {
 function sumOfEvenFibonacciValuesBelow(upperLimit: number): number {
   let sum = 0;
 
-  const fibonacci = FibonacciGenerator({ f0: 1, f1: 2 });
+  const fibonacci = FibonacciGenerator(1, 2);
   for (const term of fibonacci) {
     if (term > upperLimit) {
       break;

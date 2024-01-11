@@ -31,7 +31,7 @@ function numSolutionsFor(p: number): number {
   const triangle: TriangleSides = [0, 0, 0];
   let start = 1;
 
-  while (true) {
+  for (;;) {
     triangle[0] = start;
     triangle[1] = start;
     triangle[2] = p - (start + start);
@@ -39,7 +39,7 @@ function numSolutionsFor(p: number): number {
       break;
     }
 
-    while (true) {
+    for (;;) {
       if (isRightTriangle(triangle)) {
         solutions++;
       }
