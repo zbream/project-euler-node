@@ -4,7 +4,7 @@ export function main038() {
   return findMaxConcatenatedProductPandigital();
 }
 
-export function findMaxConcatenatedProductPandigital() {
+function findMaxConcatenatedProductPandigital() {
   let maxCPP = 0;
   const check = (m: number, n: number) => {
     let cps = "";
