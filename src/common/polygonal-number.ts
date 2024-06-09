@@ -7,23 +7,22 @@ export function pentagonalNumberByTerm(n: number): number {
 }
 
 export function hexagonalNumberByTerm(n: number): number {
-  return (n * (2 * n - 1));
+  return n * (2 * n - 1);
 }
 
 export function TriangularNumberGenerator() {
-  return polygonalNumberGenerator(triangularNumberByTerm);
+  return PolygonalNumberGenerator(triangularNumberByTerm);
 }
 
 export function PentagonalNumberGenerator() {
-  return polygonalNumberGenerator(pentagonalNumberByTerm);
+  return PolygonalNumberGenerator(pentagonalNumberByTerm);
 }
 
 export function HexagonalNumberGenerator() {
-  return polygonalNumberGenerator(hexagonalNumberByTerm);
+  return PolygonalNumberGenerator(hexagonalNumberByTerm);
 }
 
 export class PolygonalNumberUtil {
-
   private readonly cache = new Set<number>();
   private highestPolygonalNumber = -1;
 
@@ -45,10 +44,9 @@ export class PolygonalNumberUtil {
     }
     return this.cache.has(num);
   }
-
 }
 
-function* polygonalNumberGenerator(formula: (n: number) => number) {
+function* PolygonalNumberGenerator(formula: (n: number) => number) {
   let term = 0;
   while (true) {
     yield formula(term++);

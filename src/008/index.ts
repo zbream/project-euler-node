@@ -1,4 +1,5 @@
 import { join } from 'path';
+import { lastValueFrom } from 'rxjs';
 import { map, reduce } from 'rxjs/operators';
 
 import { getInputDigitStream$ } from './input/input-digit-stream';
@@ -15,14 +16,19 @@ export function example008() {
 }
 
 function findGreatestProductOfAdjacentDigits$(path: string, digits: number) {
-  return getInputDigitStream$(path).pipe(
-    reduce(({ productQueue, productGreatest }, digit) => {
-      const product = productQueue.nextFactor(digit);
-      if (product > productGreatest) {
-        productGreatest = product;
-      }
-      return { productQueue, productGreatest };
-    }, { productQueue: new ProductQueue(digits), productGreatest: 0 }),
-    map(({ productGreatest }) => productGreatest),
+  return lastValueFrom(
+    getInputDigitStream$(path).pipe(
+      reduce(
+        ({ productQueue, productGreatest }, digit) => {
+          const product = productQueue.next(digit);
+          if (product > productGreatest) {
+            productGreatest = product;
+          }
+          return { productQueue, productGreatest };
+        },
+        { productQueue: new ProductQueue(digits), productGreatest: 0 }
+      ),
+      map(({ productGreatest }) => productGreatest)
+    )
   );
 }

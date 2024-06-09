@@ -1,4 +1,10 @@
-export function* ChampernowneGenerator(): Generator<number, never, void> {
+/**
+ * Generate the terms of the Champernowne constant,
+ * the decimal created by concatenating the positive integers.
+ *
+ * `0.12345678910111213141516...`
+ */
+export function* ChampernowneGenerator(): Generator<number, never> {
   const stack: number[] = [];
   let nextInt = 1;
 
@@ -17,6 +23,12 @@ export function* ChampernowneGenerator(): Generator<number, never, void> {
   }
 }
 
+/**
+ * Generate specific terms of the Champernowne constant,
+ * while avoiding starting from scratch on each requested term.
+ *
+ * All requested terms must be strictly increasing.
+ */
 export class ChampernowneTermUtil {
   private generator = ChampernowneGenerator();
   private nextTerm = 1;
@@ -24,17 +36,15 @@ export class ChampernowneTermUtil {
   getTerm(term: number): number {
     if (term < this.nextTerm) {
       throw new Error('Term out of range.');
-    } else {
-      while (this.nextTerm < term) {
-        this.getNextTerm();
-      }
-      return this.getNextTerm();
     }
+    while (this.nextTerm < term) {
+      this.getNextTerm();
+    }
+    return this.getNextTerm();
   }
 
   private getNextTerm(): number {
     this.nextTerm++;
     return this.generator.next().value;
   }
-
 }
