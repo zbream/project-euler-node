@@ -29,3 +29,16 @@ export function memoizeDigitTransform(transform: (num: number) => number): numbe
   }
   return result;
 }
+
+/**
+ * Generate an ID unique to all permutations of a number's digits.
+ *
+ * @example
+ *
+ * - 3214 => 1234
+ * - 3412 => 1234
+ * - 4432 => 2344
+ */
+export function digitPermutationId(num: number) {
+  return `${num}`.split('').sort().join('');
+}
