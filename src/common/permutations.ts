@@ -4,7 +4,7 @@
  *
  * Uses [Heap's Algorithm](https://en.wikipedia.org/wiki/Heap%27s_algorithm).
  */
-export function PermutationGenerator<T>(a: T[]) {
+export function PermutationGenerator<T>(a: readonly T[]) {
   return generate(a.length, [...a]);
 }
 
