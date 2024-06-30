@@ -2,7 +2,7 @@ import * as fs from 'fs';
 
 export function readAllLines(path: string): string[] {
   return fs.readFileSync(path, { encoding: 'utf8' })
-    .replace('\r\n', '\n')
+    .replaceAll('\r\n', '\n')
     .split('\n');
 }
 
