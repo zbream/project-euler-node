@@ -20,18 +20,32 @@ export function* CollatzGenerator(term: number) {
 }
 
 /**
- * Find the length of a Collatz sequence, starting with the given value.
- *
- * Memory-safe, does not store the entire sequence in memory.
- *
- * @param start starting value
- * @returns length
+ * Evaluator for determining length of collatz chains.
+ * All seen values are cached for later evaluations.
  */
-export function getCollatzChainLength(start: number) {
-  let terms = 0;
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  for (const _ of CollatzGenerator(start)) {
-    terms++;
+export class CollatzChainEvaluator {
+  private cache = new Map<number, number>();
+
+  getLength(start: number) {
+    const chain: number[] = [];
+    for (const term of CollatzGenerator(start)) {
+      // Does this term have a known chain length?
+      const cachedLength = this.cache.get(term);
+      if (cachedLength !== undefined) {
+        this.cacheChain(chain, cachedLength);
+        return chain.length + cachedLength;
+      }
+
+      // Move along to the next term.
+      chain.push(term);
+    }
+    this.cacheChain(chain, 0);
+    return chain.length;
   }
-  return terms;
+
+  private cacheChain(chain: number[], remainingLength: number) {
+    for (let i = 1; i <= chain.length; i++) {
+      this.cache.set(chain[chain.length - i], i + remainingLength);
+    }
+  }
 }

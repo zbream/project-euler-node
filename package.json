@@ -8,7 +8,8 @@
     "build": "tsc -p tsconfig.build.json && cpx \"./src/**/*.txt\" \"./dist\"",
     "lint": "eslint .",
     "clean": "rimraf ./dist",
-    "test": "jest"
+    "test": "jest",
+    "timer": "jest --verbose --run-in-band"
   },
   "dependencies": {
     "rxjs": "^7.8.1"

@@ -1,33 +1,16 @@
-import { memoizeDigitTransform } from '../common/util';
-
-const digitSquared = memoizeDigitTransform(digit => digit * digit);
+import { SquareDigitSumChainEvaluator } from './square-digit-sum';
 
 export function main092() {
   return numChainsWhereFinalIs89UpTo(10000000);
 }
 
 function numChainsWhereFinalIs89UpTo(upperLimit: number): number {
+  const evaluator = new SquareDigitSumChainEvaluator();
   let count = 0;
-  for (let i = 1; i < upperLimit; i++) {
-    if (chainFinal(i) === 89) {
+  for (let i = upperLimit - 1; i >= 1; i--) {
+    if (evaluator.getFinal(i) === '89') {
       count++;
     }
   }
   return count;
-}
-
-function chainFinal(num: number) {
-  while (num !== 1 && num !== 89) {
-    num = sumDigitsSquared(num);
-  }
-  return num;
-}
-
-function sumDigitsSquared(num: number): number {
-  let sum = 0;
-  while (num > 0) {
-    sum += digitSquared[num % 10];
-    num = Math.floor(num / 10);
-  }
-  return sum;
 }
