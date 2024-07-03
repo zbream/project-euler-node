@@ -42,3 +42,16 @@ export function memoizeDigitTransform(transform: (num: number) => number): numbe
 export function digitPermutationId(num: number) {
   return `${num}`.split('').sort().join('');
 }
+
+export function numberFromDigitArray(
+  arr: readonly number[],
+  start: number,
+  end: number
+) {
+  let res = 0;
+  for (let i = start; i < end; i++) {
+    res *= 10;
+    res += arr[i];
+  }
+  return res;
+}
